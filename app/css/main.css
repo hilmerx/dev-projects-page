@@ -5,7 +5,8 @@ body, html {
     color: #eee;
     font-weight: 300;
     font-size: 1.5rem;
-    font-family: 'Europa-Bold', sans-serif;
+    font-family: 'Europa', sans-serif;
+    font-weight: 700;
 }
 
 a {
@@ -70,9 +71,12 @@ a {
     }
 
     &__text {
+        font-family: 'Europa', sans-serif;
         font-size: 0.8rem;
         padding-bottom: 1rem;
         width: 30rem;
+        font-weight: 400;
+
     }
 
 
@@ -106,7 +110,7 @@ img {
         top:50%;
         transform: translateY(-50%);
         width: 60%;
-        height: 75%;
+        /*height: 75%;*/
         z-index: 199;
 
 
@@ -114,10 +118,11 @@ img {
 
     &__pop-up-text {
 
-        padding: 1rem 3rem 3rem 3rem;
+        padding: 4rem 7rem 5rem 7rem;
         position: relative;
         top:50%;
-        transform: translateY(-50%);
+        font-size: 1rem;
+
     }
 
     &__pop-up-x {
@@ -125,6 +130,7 @@ img {
         right: 1.5rem;
         top: 1.5rem;
         cursor: pointer;
+        z-index: 299;
     }
 
     a {

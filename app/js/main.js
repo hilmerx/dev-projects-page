@@ -18,9 +18,7 @@ document.getElementById("modal-x").addEventListener("click", function(e){
 })
 
 $(window).scroll(function() {
-    var header = $(document).scrollTop();
-    console.log(header);
-
+    let header = $(document).scrollTop();
     if (header > 120) {
       $('.header').addClass('header--sticky-is-active');
       $('.feed').addClass('feed--sticky-is-active');
