@@ -21,11 +21,11 @@ gulp.task('browserSync', () => {
 
 // watch function
 
-gulp.task('watch', ['browserSync'], () => {
+gulp.task('watch', ['browserSync', 'scripts', 'styles'], () => {
 
   watch('./app/css/**/*.css', () => { gulp.start('cssInject')})
   watch('./app/js/**/*.js', () => {
-    browserSync.reload()
+    gulp.start('scriptsRefresh')
   } )
   watch('./app/index.html', browserSync.reload )
 
@@ -42,6 +42,10 @@ gulp.task('styles', () => {
             this.emit('end'); // Prevent gulp from catching the error and exiting the watch process
         }))
     .pipe(gulp.dest('./app/temp/css'))
+})
+
+gulp.task('scriptsRefresh', ['scripts'], () => {
+    browserSync.reload()
 })
 
 

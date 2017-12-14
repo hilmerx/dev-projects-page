@@ -1,0 +1,257 @@
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    /*background-color: red;*/
+    color: #eee;
+    font-size: 1.5rem;
+    font-family: 'Europa', sans-serif;
+    font-weight: 700;
+
+        @mixin atMobile {
+            font-size: 1.05rem;
+        }
+    
+
+}
+
+a {
+    color: #eee;
+}
+
+.wrapper {
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+        @mixin atMobile {
+            margin-left: 7%;
+            margin-right: 7%;
+        }
+
+}
+
+.header {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+        @mixin atMobile {
+            position: fixed;
+            top:0;
+            width: 86%;
+            z-index: 1;
+            background-color: #222;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+    &__text-left {
+        display: inline-block;
+        align-content: right;
+    }
+
+    &__text-right {
+        display: inline;
+        position: absolute;
+        right: 0;
+        align-content: right;
+
+    }
+
+    &--sticky-is-active {
+        position: fixed;
+        top:0;
+        width: 80%;
+        z-index: 1;
+        background-color: #222;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        @mixin atMobile {
+            position: fixed;
+            top:0;
+            width: 86%;
+            z-index: 1;
+            background-color: #222;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+
+        }
+    }
+}
+
+
+.feed {
+    position: absolute;
+    width: 100%;
+    height:60vh;
+
+        @mixin atMobile {
+            padding-top: 7rem;
+        }
+
+
+    &--sticky-is-active {
+        padding-top: 14rem;
+            @mixin atMobile {
+                padding-top: 7rem;
+            }
+    }
+}
+
+.item {
+    padding-bottom: 6rem;
+
+    &__header {
+        display: inline-block;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #eee;
+
+        @mixin atMobile {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+
+        }
+
+
+    }
+
+    &__text {
+        font-family: 'Europa', sans-serif;
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+        max-width: 30rem;
+        font-weight: 400;
+        line-height: 1.5;
+
+        @mixin atMobile {
+            width: 100%;
+            font-size: 0.8rem;
+        }
+
+    }
+
+
+}
+
+img {
+    filter: grayscale(100%);
+    padding-bottom: 0.8rem;
+    max-width: 100%;
+    max-height: 300px;
+        @mixin atMobile {
+            width: 100%;
+            height: auto;
+            padding-bottom: 1rem;
+
+        }
+
+
+
+    &:hover {
+        filter: grayscale(75%);
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    background-color: #222;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background:rgba(26,10,0,0.5);
+
+    &__pop-up {
+
+        position: fixed;
+        margin: auto;
+        color: #222;
+        background-color: #eee;
+        position: relative;
+        top:50%;
+        transform: translateY(-50%);
+        width: 60%;
+        z-index: 199;
+            @mixin atMobile {
+                position: fixed;
+                margin: auto;
+                color: #222;
+                background-color: #eee;
+                position: relative;
+                top:50%;
+                transform: translateY(-50%);
+                width: 80%;
+                z-index: 199;
+            }
+
+
+    }
+
+    &__pop-up-text {
+
+        padding: 4rem 7rem 5rem 7rem;
+        position: relative;
+        top:50%;
+        font-size: 1rem;
+
+            @mixin atMobile {
+                padding: 2rem 2rem 3rem 2rem;
+                position: relative;
+                top:50%;
+                font-size: 0.8rem;
+            }
+
+            @mixin atSmall {
+                padding: 2rem 2rem 3rem 2rem;
+                position: relative;
+                top:50%;
+                font-size: 0.8rem;
+            }
+
+    }
+
+    &__pop-up-x {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        cursor: pointer;
+        z-index: 299;
+
+            @mixin atMobile {
+                right: 1rem;
+                top: 1rem;
+            }
+
+
+        img {
+            width: 30px;
+            height: auto;
+
+            @mixin atMobile {
+                width: 20px;
+                height: auto;
+            }
+
+        }
+    }
+
+    a {
+        text-decoration: underline;
+        color: #222;
+    }
+
+    &--is-active{
+        display: block;
+    }
+
+}
+
+#about {
+    &:hover {
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        }
+}
