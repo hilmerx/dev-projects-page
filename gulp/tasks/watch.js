@@ -23,7 +23,7 @@ gulp.task('browserSync', () => {
 
 gulp.task('watch', ['browserSync'], () => {
 
-  watch('./app/css/**/*.css', () => { gulp.start('cssInject') })
+  watch('./app/css/**/*.css', () => { gulp.start('cssInject')})
   watch('./app/js/**/*.js', () => {
     browserSync.reload()
   } )
@@ -35,7 +35,7 @@ gulp.task('watch', ['browserSync'], () => {
 
 // postcss function
 gulp.task('styles', () => {
-  return gulp.src('./app/css/main.css')
+  return gulp.src('./app/css/styles.css')
     .pipe(postcss([cssImport, mixins, cssvars, nested, hexrgba, autoprefixer]).on('error', function(err) {// Error handling / not chrash the gulp watch
             console.error(err.message);// Display error in the terminal
             browserSync.notify(err.message, 5000); // Display error in the browser
