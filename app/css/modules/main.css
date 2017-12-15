@@ -4,6 +4,7 @@ body, html {
     margin: 0;
     padding: 0;
     background-color: #222;
+    background-color: red;
     color: #eee;
     font-size: 1.5rem;
     font-family: 'Europa', sans-serif;
