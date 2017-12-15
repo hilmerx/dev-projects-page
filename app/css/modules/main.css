@@ -4,7 +4,6 @@ body, html {
     margin: 0;
     padding: 0;
     background-color: #222;
-    /*background-color: red;*/
     color: #eee;
     font-size: 1.5rem;
     font-family: 'Europa', sans-serif;
@@ -47,26 +46,34 @@ a {
 
 
     &__text-left {
-        display: inline-block;
-        align-content: right;
+        display: inline;
     }
 
     &__text-right {
-        display: inline;
-        position: absolute;
-        right: 0;
-        align-content: right;
-
+        float:right;
     }
+
+    &__gradient-div {
+        margin-top: 1rem; 
+        position: fixed;
+        height: 0.12rem;
+        width: 80%;
+        background: linear-gradient(rgba(34, 34, 34 ,1), rgba(34, 34, 34, 0));
+    }
+
 
     &--sticky-is-active {
         position: fixed;
         top:0;
+        left:0;
         width: 80%;
         z-index: 1;
         background-color: #222;
         padding-top: 1rem;
         padding-bottom: 1rem;
+        padding-left: 10%;
+        padding-right: 10%;
+
 
         @mixin atMobile {
             position: fixed;
@@ -78,6 +85,7 @@ a {
             padding-bottom: 1rem;
 
         }
+
     }
 }
 
