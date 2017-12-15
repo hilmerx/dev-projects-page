@@ -106,6 +106,35 @@ a {
                 padding-top: 7rem;
             }
     }
+
+
+    &__arrow-down {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        opacity: 1;
+
+            @mixin atMedium {
+                left: 80%;
+            }
+
+            @mixin atSmall {
+                left: 0;
+                display: none;
+            }
+
+
+        img {
+            filter: invert(80%);
+            height: auto;
+            width: 3rem;
+
+            &:hover {
+                filter: invert(80%);
+            } 
+        }
+    }
 }
 
 .item {

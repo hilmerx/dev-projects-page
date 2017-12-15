@@ -144,6 +144,49 @@ a {
   }
 
 
+.feed__arrow-down {
+        position: fixed;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+        bottom: 0;
+        opacity: 1;
+    }
+
+
+@media (max-width: 1270px) {
+
+
+.feed__arrow-down {
+                left: 80%
+    }
+  }
+
+
+@media (max-width: 800px) {
+
+
+.feed__arrow-down {
+                left: 0;
+                display: none
+    }
+  }
+
+
+.feed__arrow-down img {
+            -webkit-filter: invert(80%);
+                    filter: invert(80%);
+            height: auto;
+            width: 3rem; 
+        }
+
+
+.feed__arrow-down img:hover {
+                -webkit-filter: invert(80%);
+                        filter: invert(80%);
+            }
+
+
 .item {
     padding-bottom: 6rem;
 

@@ -10,3 +10,10 @@
     @mixin-content;
   }
 }
+
+
+@define-mixin atMedium {
+  @media (max-width: 1270px) {
+    @mixin-content;
+  }
+}

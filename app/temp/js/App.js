@@ -76,30 +76,35 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-document.getElementById("about").addEventListener("click", function () {
-    var modal = document.getElementsByClassName("modal");
-    modal[0].classList.toggle('modal--is-active');
+(0, _jquery2.default)("#about").click(function () {
+    var modal = (0, _jquery2.default)(".modal");
+    modal.toggleClass('modal--is-active');
 });
 
-document.getElementById("modal-background").addEventListener("click", function () {
-    var modal = document.getElementsByClassName("modal");
-    modal[0].classList.toggle('modal--is-active');
+(0, _jquery2.default)("#modal-background").click(function () {
+    var modal = (0, _jquery2.default)(".modal");
+    modal.toggleClass('modal--is-active');
 });
 
-document.getElementById("modal-box").addEventListener("click", function (e) {
+(0, _jquery2.default)("#modal-box").click(function (e) {
     e.stopPropagation();
 });
 
-document.getElementById("modal-x").addEventListener("click", function (e) {
-    var modal = document.getElementsByClassName("modal");
-    modal[0].classList.toggle('modal--is-active');
+(0, _jquery2.default)("#modal-x").click(function (e) {
+    var modal = (0, _jquery2.default)(".modal");
+    modal.toggleClass('modal--is-active');
 });
 
 (0, _jquery2.default)(window).scroll(function () {
-    var header = (0, _jquery2.default)(document).scrollTop();
-    if (header > 120) {
+    var scrollLength = (0, _jquery2.default)(document).scrollTop();
+    var opacity = 1 - scrollLength / 120;
+
+    (0, _jquery2.default)('.feed__arrow-down').css('opacity', opacity);
+
+    if (scrollLength > 120) {
         (0, _jquery2.default)('.header').addClass('header--sticky-is-active');
         (0, _jquery2.default)('.feed').addClass('feed--sticky-is-active');
+        (0, _jquery2.default)('.feed__arrow-down').css('display', 'none');
     } else {
         (0, _jquery2.default)('.header').removeClass('header--sticky-is-active');
         (0, _jquery2.default)('.feed').removeClass('feed--sticky-is-active');

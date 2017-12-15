@@ -51,6 +51,6 @@ gulp.task('scriptsRefresh', ['scripts'], () => {
 
 // cssInject function
 gulp.task('cssInject', ['styles'], () => {
-  return gulp.src('./app/css/*.css')
+  return gulp.src('./app/**/*.css')
     .pipe(browserSync.stream())
 })
