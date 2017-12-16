@@ -60,59 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _jquery = __webpack_require__(1);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _jquery2.default)("#about").click(function () {
-    var modal = (0, _jquery2.default)(".modal");
-    modal.toggleClass('modal--is-active');
-});
-
-(0, _jquery2.default)("#modal-background").click(function () {
-    var modal = (0, _jquery2.default)(".modal");
-    modal.toggleClass('modal--is-active');
-});
-
-(0, _jquery2.default)("#modal-box").click(function (e) {
-    e.stopPropagation();
-});
-
-(0, _jquery2.default)("#modal-x").click(function (e) {
-    var modal = (0, _jquery2.default)(".modal");
-    modal.toggleClass('modal--is-active');
-});
-
-(0, _jquery2.default)(window).scroll(function () {
-    var scrollLength = (0, _jquery2.default)(document).scrollTop();
-    var opacity = 1 - scrollLength / 120;
-
-    (0, _jquery2.default)('.feed__arrow-down').css('opacity', opacity);
-
-    if (scrollLength > 120) {
-        (0, _jquery2.default)('.header').addClass('header--sticky-is-active');
-        (0, _jquery2.default)('.feed').addClass('feed--sticky-is-active');
-        (0, _jquery2.default)('.feed__arrow-down').css('display', 'none');
-    } else {
-        (0, _jquery2.default)('.header').removeClass('header--sticky-is-active');
-        (0, _jquery2.default)('.feed').removeClass('feed--sticky-is-active');
-    }
-});
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10370,6 +10322,201 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Modal = __webpack_require__(2);
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
+var _ScrollEvents = __webpack_require__(3);
+
+var _ScrollEvents2 = _interopRequireDefault(_ScrollEvents);
+
+var _GoogleAnalytics = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var modal = new _Modal2.default();
+var scrollEvents = new _ScrollEvents2.default();
+
+(0, _GoogleAnalytics.runGoogleAnalytics)();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Modal = function () {
+    function Modal() {
+        _classCallCheck(this, Modal);
+
+        this.modal = (0, _jquery2.default)(".modal");
+        this.aboutButton = (0, _jquery2.default)("#about");
+        this.textBox = (0, _jquery2.default)("#modal-box");
+        this.background = (0, _jquery2.default)("#modal-background");
+        this.closeButton = (0, _jquery2.default)("#modal-x");
+
+        this.events();
+    }
+
+    _createClass(Modal, [{
+        key: "events",
+        value: function events() {
+            this.aboutButton.click(this.openModal.bind(this));
+
+            this.background.click(this.closeModal.bind(this));
+
+            this.textBox.click(function (e) {
+                e.stopPropagation();
+            });
+
+            this.closeButton.click(this.closeModal.bind(this));
+        }
+    }, {
+        key: "openModal",
+        value: function openModal() {
+            this.modal.addClass("modal--is-active");
+            return false;
+        }
+    }, {
+        key: "closeModal",
+        value: function closeModal() {
+            this.modal.removeClass("modal--is-active");
+            return false;
+        }
+    }]);
+
+    return Modal;
+}();
+
+exports.default = Modal;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ScrollEvents = function () {
+    function ScrollEvents() {
+        _classCallCheck(this, ScrollEvents);
+
+        this.arrowDown = (0, _jquery2.default)('.feed__arrow-down');
+        this.header = (0, _jquery2.default)('.header');
+        this.feed = (0, _jquery2.default)('.feed');
+        this.breakPoint = 120;
+
+        this.events();
+    }
+
+    _createClass(ScrollEvents, [{
+        key: 'events',
+        value: function events() {
+            this.scrollListener();
+        }
+    }, {
+        key: 'scrollListener',
+        value: function scrollListener() {
+            (0, _jquery2.default)(window).scroll(function () {
+                var scrollLength = (0, _jquery2.default)(document).scrollTop();
+
+                this.arrowEvents(scrollLength);
+                this.stickyHeaderEvents(scrollLength);
+            }.bind(this));
+        }
+    }, {
+        key: 'arrowEvents',
+        value: function arrowEvents(scrollLength) {
+            var breakPoint = 100;
+
+            var opacity = 1 - scrollLength / breakPoint;
+
+            this.arrowDown.css('opacity', opacity);
+
+            if (scrollLength > breakPoint) {
+                this.arrowDown.css('display', 'none');
+            }
+        }
+    }, {
+        key: 'stickyHeaderEvents',
+        value: function stickyHeaderEvents(scrollLength) {
+            var breakPoint = 120;
+
+            if (scrollLength > breakPoint) {
+                this.header.addClass('header--sticky-is-active');
+                this.feed.addClass('feed--sticky-is-active');
+            } else {
+                this.header.removeClass('header--sticky-is-active');
+                this.feed.removeClass('feed--sticky-is-active');
+            }
+        }
+    }]);
+
+    return ScrollEvents;
+}();
+
+exports.default = ScrollEvents;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+      value: true
+});
+exports.runGoogleAnalytics = runGoogleAnalytics;
+function runGoogleAnalytics() {
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36488108-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function () {
+            var ga = document.createElement('script');ga.type = 'text/javascript';ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga, s);
+      })();
+}
 
 /***/ })
 /******/ ]);
